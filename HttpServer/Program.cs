@@ -11,14 +11,19 @@ namespace HttpServer
     {
         static void Main(string[] args)
         {
-            const string url = "http://localhost:80/MyServer/";
-            const string path = @"C:\Users\anton.kobziev\Desktop\TestServer";
+            const string url = "http://localhost:51111/MyServer/";
+            const string path = @"C:\Users\Student\Desktop\serverFolder";
 
             var server = new TestWebServer(url, path);
-            server.Start();
-
-            //WebClient client = new WebClient();
-            //Console.WriteLine(client.DownloadString(url + "Test.html"));
+            try
+            {
+                server.Start();
+                Console.ReadLine();
+            }
+            finally
+            {
+                server.Stop();
+            }            
         }
     }
 }
